@@ -1,0 +1,17 @@
+# 给字符串 s 和 t ，请编程判断 s 是否为 t 的子序列。
+s = input("请输入字符串")
+t = input("请输入字符串")
+n = len(s)
+m = len(t)
+# 指针
+j,k = 0,0
+
+while j < n and k < m:
+  if s[j] == t[k]:
+    j += 1
+  k += 1
+if j == n:
+  print("s是t的子序列")
+else:
+  print("s不是t的子序列")
+  
