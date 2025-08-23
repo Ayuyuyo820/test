@@ -1,0 +1,41 @@
+letters = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+    'U', 'V', 'W', 'X', 'Y', 'Z'
+]
+morse_codes = [
+    '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---',
+    '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-',
+    '..-', '...-', '.--', '-..-', '-.--', '--..'
+]
+
+ks = input("请输入需要加密的密码")
+#存放密码
+result = []
+# 偏移量
+demand = 6
+
+for i in ks:
+  if 'A' <= i <= 'Z':
+    shifted = ord('A') + (ord(i) - ord('A') + demand) % 26
+    result.append(chr(shifted))
+  elif 'a' <= i <= 'z':
+    shifted = ord('a') + (ord(i) - ord('a') + demand) % 26
+    result.append(chr(shifted))
+  else:
+    result.append(i)
+
+case = ''.join(result)
+print("第一次加密",case)
+
+password = []
+for each in case:
+  # 全部变成大写
+  each_upper = each.upper()
+  if each_upper in letters:
+    index = letters.index(each_upper)
+    password.append(morse_codes[index])
+  else:
+    password.append(each)
+fish = ' '.join(password)
+print("第二次加密为",fish)
