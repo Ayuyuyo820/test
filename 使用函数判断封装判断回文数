@@ -1,0 +1,31 @@
+from xpinyin import Pinyin
+# 获取中文
+def get_input():
+    s = input("请输入一段话")
+    while len(s) == 1:
+        s = input("字数过少重新输入")
+    return s
+# 转换成拼音
+def get_py(s):
+    p = Pinyin()
+    s = p.get_pinyin(s)
+    return s
+
+# 判断是否是回文数
+def check_pd(s):
+    l = s.split('-')
+    for i in range(len(l)//2):
+        if l[i] != l[-i-1]:
+            return False
+    else:
+        return True
+
+# 输入回文数
+s = get_input()
+# 转为拼音
+w = get_py(s)
+
+if check_pd(w):
+    print(f"[{s}]是回文。")
+else:
+    print(f"[{s}]不是回文。")
