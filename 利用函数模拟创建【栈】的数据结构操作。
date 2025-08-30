@@ -1,0 +1,42 @@
+# 输入
+def push(data):
+    
+    mieya.append(data)
+    print("压栈成功")
+
+# 取出
+def pop():
+    if len(mieya) == 0:
+        print("空的无法取出值")
+        return None
+    else:
+        data = mieya.pop()
+        print(f"出栈成功{data}")
+        return data
+#打印
+def print_data():
+    if len(mieya) == 0:
+        print("当前栈为空")
+        return None
+    else:
+        for i in reversed(mieya):
+            print(i)
+mieya = []
+a = ''
+while a !='exit':
+    a = input("请输入指令(push/pop/top/exit)")
+    if a == 'push':
+        data = input("请输入压栈的值")
+        push(data)
+    if a == 'pop':
+         pop()
+
+    if a == 'top':
+        if len(mieya) == 0:
+            print("栈为空，无栈顶元素")
+        else:
+            print(f"栈顶元素：{mieya[-1]}")
+
+    if a == 'exit':
+        print("退出程序")
+        break
