@@ -1,0 +1,23 @@
+import random
+
+def fy_shuffle(s,v):
+    # 初始化输入的变量
+    lis =list(s)
+    # 取长度方便遍历对象
+    
+    for each in range(v):
+        for i in range(len(lis)-1,0,-1):
+            j = random.randint(0,i)
+            lis[i],lis[j] = lis[j],lis[i]
+        print(f"第{each+1}次打乱顺序为:{''.join(lis)}")
+    return ''.join(lis)
+
+s = input("请输入需要打乱的值")
+# 次数
+v =  int(input("请输入次数"))
+
+
+
+
+a = fy_shuffle(s,v)
+print(f"最终结果:{''.join(a)}")
