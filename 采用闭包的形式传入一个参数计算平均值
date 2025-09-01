@@ -1,0 +1,14 @@
+# ，每次调用传入一个参数，并返回所有参数的平均值。
+def make_avg():
+    number = []
+    def all(new_num):
+        number.append(new_num)
+
+        average = sum(number) /len(number)
+        return average
+    return all
+
+make = make_avg()
+
+print(make(5))
+        
