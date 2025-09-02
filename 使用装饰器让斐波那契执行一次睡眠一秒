@@ -1,0 +1,26 @@
+
+# 现在请大家编写一个装饰器，并将其放到适当的位置，目的是让代码 1 秒钟打印一个结果。
+import time
+
+def time_master(func):
+    def call_func():
+        time.sleep(1)
+        func()
+    return call_func
+    
+def fib():
+    back1, back2 = 0, 1
+    @time_master
+    def func():
+        nonlocal back1, back2
+        back1, back2 = back2, back1 + back2
+        print(back1, end=' ')
+    return func
+  
+def get_fib(n):
+    f = fib()
+    for i in range(n):
+        f()
+   
+n = int(input("请输入需要获取的斐波那契数："))
+get_fib(n)
