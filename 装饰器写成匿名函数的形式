@@ -1,0 +1,36 @@
+# 6. 请将下面三个装饰器函数写成 lambda 表达式的实现形式？
+def add(func):
+    def inner():
+        x = func()
+        return x + 1
+    return inner
+   
+def cube(func):
+    def inner():
+        x = func()
+        return x * x * x
+    return inner
+   
+def square(func):
+    def inner():
+        x = func()
+        return x * x
+    return inner
+   
+@add
+@cube
+@square
+def test():
+    return 2
+   
+print(test())
+
+
+
+add = lambda  func : lambda :func() +1 
+cube = lambda  func : lambda :func() **3
+square = lambda  func : lambda :func() **2
+def test():
+    return 2
+test = (add(cube(square(test))))
+print(test())
